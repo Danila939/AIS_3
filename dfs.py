@@ -1,7 +1,11 @@
 def dfs(graph, start, len, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
+    try:
+        if visited is None:
+            visited = set()
+        visited.add(start)
+    except Exception as e:
+        print ("Node is not valid" + start)
+        raise e
 
     print (start)
     print("Length is ", len)
@@ -19,4 +23,4 @@ graph = {'0': set(['2']),
 
 length = 0
 
-dfs(graph, '1', length)
+dfs(graph, '5', length)
