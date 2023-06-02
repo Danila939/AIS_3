@@ -1,12 +1,14 @@
-def dfs(graph, start, visited=None):
+def dfs(graph, start, len, visited=None):
     if visited is None:
         visited = set()
     visited.add(start)
 
     print (start)
+    print("Length is ", len)
 
     for next in graph[start] - visited:
-        dfs(graph, next, visited)
+        dfs(graph, next, len+1, visited)
+
     return visited
 
 
@@ -15,4 +17,6 @@ graph = {'0': set(['2']),
          '2': set(['0']),
          '3': set(['1'])}
 
-dfs(graph, '0')
+length = 0
+
+dfs(graph, '1', length)
